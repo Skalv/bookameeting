@@ -37,9 +37,12 @@ class DefenseManager {
   }
 
   extractName(str) {
-    const match = /planifiée avec [A-Z]{1}[a-zà-öø-ÿ]{1,}\s[A-Z]{1}[a-zà-öø-ÿ]{1,}(\s[A-Z]{1}[a-zà-öø-ÿ]{1,})?/.exec(
+    const match = /planifiée avec [A-Z]{1}[A-Za-zà-öø-ÿ-]{1,}\s[A-Z]{1}[A-Za-zà-öø-ÿ-]{1,}(\s[A-Z]{1}[A-Za-zà-öø-ÿ-]{1,})?/.exec(
       str
     )
+    if (match === null) {
+      console.log(str)
+    }
     return match[0].slice(15)
   }
 
